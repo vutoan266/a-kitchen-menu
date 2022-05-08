@@ -1,12 +1,18 @@
 export const sortMenuAndMarkRefIndex = (sections, _lastRefIndex = -1) => {
   // sort sections and items by displayOrder
-  // add refIndex for section items and subSection items
-  if (!sections?.length) return lastRefIndex;
+  // add refIndex for "section with items" and "subSection items"
+  if (!sections?.length) return _lastRefIndex;
   sections.sort((a, b) => a.displayOrder - b.displayOrder);
-  let lastRefIndex = _lastRefIndex + 1;
+  let lastRefIndex = _lastRefIndex;
   sections.forEach((section) => {
-    section.refIndex = lastRefIndex;
-    lastRefIndex = sortMenuAndMarkRefIndex(section?.subSections, lastRefIndex);
+    if (section?.subSections?.length) {
+      lastRefIndex = sortMenuAndMarkRefIndex(
+        section?.subSections,
+        lastRefIndex
+      );
+    } else {
+      section.refIndex = ++lastRefIndex;
+    }
   });
   return lastRefIndex;
 };

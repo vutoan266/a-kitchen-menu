@@ -19,7 +19,7 @@ export default function Menu() {
   console.log(menuList);
 
   return (
-    <div className="max-w-4xl m-auto">
+    <div className="max-w-6xl m-auto mt-5">
       {menuList ? <MenuLayout menuList={menuList} /> : <p>Loading..</p>}
     </div>
   );
