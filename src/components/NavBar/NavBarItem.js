@@ -3,15 +3,19 @@ import React from "react";
 
 const NavBarItem = ({ label, refIndex, isActive }) => {
   return (
-    <a href={`#NavBarItem-${refIndex}`}>
-      <li
-        className={classNames("p-1 border-l-2 border-solid border-grey", {
+    <li
+      className={classNames(
+        "p-2 border-l-2 border-solid border-grey cursor-pointer",
+        {
           "border-primaryColor": isActive,
-        })}
-      >
-        {label}
-      </li>
-    </a>
+        }
+      )}
+      onClick={() =>
+        document.getElementById(`NavBarItem-${refIndex}`).scrollIntoView(true)
+      }
+    >
+      {label}
+    </li>
   );
 };
 

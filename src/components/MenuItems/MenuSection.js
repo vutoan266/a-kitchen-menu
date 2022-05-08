@@ -21,7 +21,9 @@ const MenuSection = (props) => {
         sectionRefs.current[refIndex] = { current: ref };
       }}
     >
-      <h1 className="mb-4 text-2xl">{label}</h1>
+      <h1 className="mb-4 text-2xl" id={`NavBarItem-${refIndex}`}>
+        {label}
+      </h1>
       <div className="mb-4">{description}</div>
       <div className="grid grid-cols-2 mt-4.5 gap-x-3 sm:gap-x-6 gap-y-8 sm:grid-cols-2 lg:grid-cols-3 opacity-100">
         {items.map((item) => (
