@@ -16,11 +16,11 @@ const MenuLayout = ({ menuList }) => {
 
   return (
     <div className="grid grid-cols-5">
-      <div className="col-span-1">
-        <p className="text-3xl mb-5">Our Menu</p>
+      <div className="md:col-span-1 col-span-5">
+        <p className="text-center md:text-left text-3xl mb-5">Our Menu</p>
         <NavBar menuList={menuList} activeSection={activeSection} />
       </div>
-      <div className="col-span-4">
+      <div className="md:col-span-4 col-span-5 pl-3 pr-3">
         {menuList.map((section) => (
           <MenuSection
             key={section.label}

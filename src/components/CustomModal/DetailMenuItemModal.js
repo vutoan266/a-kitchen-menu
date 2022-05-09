@@ -18,8 +18,8 @@ const DetailMenuItemModal = (props) => {
 
   return (
     <Modal onClose={onClose}>
-      <div className="flex flex-col flex-grow overflow-y-auto lg:flex-row">
-        <div className="min-h-[500px] max-h-[100vh] flex-1 w-[100%] relative">
+      <div className="flex flex-col flex-grow overflow-y-auto lg:flex-row h-full">
+        <div className="min-h-[300px] md:min-h-[500px] max-h-[100vh] flex-1 w-[100%] relative">
           <Image src={imageUrl} alt="" layout="fill" objectFit="cover" />
         </div>
         <div className="max-h-[100vh] flex-1 bg-backgroundColor flex flex-col">
@@ -30,9 +30,9 @@ const DetailMenuItemModal = (props) => {
               dangerouslySetInnerHTML={{ __html: description }}
             />
           </div>
-          <div className="p-6 space-y-4 bg-default2 hidden lg:block bg-grey">
-            <div className="flex flex-col items-stretch sm:items-center justify-between justify-items-stretch sm:flex-row">
-              <div className="w-full mb-3 sm:mb-0 space-x-1 sm:w-auto text-md text-default">
+          <div className="p-6 space-y-4 bg-default2 lg:block bg-grey">
+            <div className="flex flex-row items-stretch sm:items-center justify-between justify-items-stretch sm:flex-row">
+              <div className="sm:mb-0 space-x-1 sm:w-auto text-md text-default">
                 <QuantityInput
                   value={quantity}
                   onChange={setQuantity}

@@ -45,3 +45,7 @@ textarea:focus,
 input:focus {
   outline: none;
 }
+
+.menu-bar::-webkit-scrollbar {
+  display: none;
+}

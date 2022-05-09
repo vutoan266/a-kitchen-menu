@@ -5,7 +5,7 @@ const NavBarItem = ({ label, refIndex, isActive }) => {
   return (
     <li
       className={classNames(
-        "p-2 border-l-2 border-solid border-grey cursor-pointer",
+        "p-2 cursor-pointer border-b-2 md:border-l-2 md:border-b-0 border-solid border-grey",
         {
           "border-primaryColor": isActive,
         }

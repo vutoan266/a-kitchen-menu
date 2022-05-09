@@ -16,8 +16,6 @@ export default function Menu() {
       .catch((e) => console.log(e));
   }, []);
 
-  console.log(menuList);
-
   return (
     <div className="max-w-6xl m-auto mt-5">
       {menuList ? <MenuLayout menuList={menuList} /> : <p>Loading..</p>}

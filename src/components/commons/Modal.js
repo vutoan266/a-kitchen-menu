@@ -6,17 +6,17 @@ const Modal = (props) => {
   return (
     <div
       tabIndex={1}
-      className="overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full pt-[30%] bg-[rgba(3,3,3,0.5)]"
+      className="overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 bottom-0 z-50 w-full md:inset-0 h-modal h-full bg-[rgba(3,3,3,0.5)] flex"
     >
       <div
         className={classNames(
-          "relative w-full max-w-4xl h-full md:h-auto bg-[#fff] m-auto translate-y-[-50%]",
+          "relative w-full max-w-4xl h-[100vh] md:h-auto bg-[#fff] m-auto",
           className
         )}
       >
         <button
           type="button"
-          className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white absolute top-1 right-1"
+          className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white absolute top-1 right-1 z-50"
           onClick={onClose}
         >
           <svg
