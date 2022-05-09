@@ -1,9 +1,9 @@
 import Image from "next/image";
-import React from "react";
+import React, { useMemo } from "react";
 import Button from "../commons/Button";
 
 const MenuCard = (props) => {
-  const { menuItem } = props;
+  const { menuItem, onClick, disabled } = props;
   const {
     label,
     description,
@@ -13,10 +13,16 @@ const MenuCard = (props) => {
     itemStock: { quantityLeft },
   } = menuItem;
 
+  const isDisable = useMemo(
+    () => disabled || quantityLeft === 0,
+    [disabled, quantityLeft]
+  );
+
   return (
     <div
       className="flex flex-col shadow-lg overflow-hidden menu-item cursor-pointer"
       style={{ backgroundColor: "white" }}
+      onClick={onClick}
     >
       <div className="flex-shrink-0">
         <div className="relative w-full overflow-hidden pt-[100%]">
@@ -45,7 +51,9 @@ const MenuCard = (props) => {
               {currency} {unitPriceFractional / 1000}
             </div>
             <div className="w-full sm:w-auto">
-              <Button>Pre-order</Button>
+              <Button className="min-w-[100px]" disabled={isDisable}>
+                {quantityLeft > 0 ? "Add" : "Sold out"}
+              </Button>
             </div>
           </div>
         </div>

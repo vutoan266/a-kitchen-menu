@@ -6,6 +6,7 @@ module.exports = {
       primaryColor: "#fa5553",
       grey: "#e5e7eb",
       primaryDarkColor: "#c91c19",
+      backgroundColor: "#fffefa",
     },
   },
   plugins: [require("@tailwindcss/line-clamp")],

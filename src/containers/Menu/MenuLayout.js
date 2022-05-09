@@ -1,17 +1,18 @@
-import React, { useRef } from "react";
+import React, { useState } from "react";
 import NavBar from "../../components/NavBar";
 import useScrollSpy from "react-use-scrollspy";
 import MenuSection from "../../components/MenuItems/MenuSection";
+import Modal from "../../components/commons/Modal";
+import DetailMenuItemModal from "../../components/CustomModal/DetailMenuItemModal";
 
 const MenuLayout = ({ menuList }) => {
   const sectionRefs = React.useRef([]);
+  const [selectedItem, setSelectedItem] = useState();
 
   const activeSection = useScrollSpy({
     sectionElementRefs: sectionRefs.current,
     offsetPx: -80,
   });
-
-  console.log(sectionRefs.current, activeSection);
 
   return (
     <div className="grid grid-cols-5">
@@ -25,9 +26,16 @@ const MenuLayout = ({ menuList }) => {
             key={section.label}
             section={section}
             sectionRefs={sectionRefs}
+            onSelectedItem={setSelectedItem}
           />
         ))}
       </div>
+      {selectedItem && (
+        <DetailMenuItemModal
+          menuItem={selectedItem}
+          onClose={() => setSelectedItem(null)}
+        />
+      )}
     </div>
   );
 };
